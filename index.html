@@ -426,6 +426,52 @@
                 font-size: 2rem;
             }
         }
+        .modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    position: relative;
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #f44336;
+}
+
+.input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.7rem 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+} 
+
     </style>
 </head>
 <body>
@@ -489,17 +535,27 @@
                             <line x1="8" y1="2" x2="8" y2="6"></line>
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
-                        Nov 9, 2025
-                    </div>
-                    <h3>Weekend Mountain Trail</h3>
-                    <div class="card-details">
+                        Nov 9, 2025<br>
                         <div class="card-detail">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
-                            7:00 AM
+                            6:30 AM
                         </div>
+                    </div>
+                    <h3>Weekend Mountain Trail</h3>
+                     
+                     <div class="card"
+ onclick="openEvent(
+   'Weekend Mountain Trail',
+   'Nov 9, 2025',
+   '7:00 AM',
+   '45 km',
+   'Vasai, Mumbai'
+ )">
+                        
+                        
                         <div class="card-detail">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
@@ -519,10 +575,7 @@
                             <line x1="8" y1="2" x2="8" y2="6"></line>
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
-                        Nov 12, 2025
-                    </div>
-                    <h3>Coastal Sunrise Ride</h3>
-                    <div class="card-details">
+                        Nov 12, 2025 
                         <div class="card-detail">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
@@ -530,11 +583,23 @@
                             </svg>
                             6:30 AM
                         </div>
-                        <div class="card-detail">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    </div>
+                    <h3>Coastal Sunrise Ride</h3>
+                    <div class="card-details">
+                        
+                        <div class="card"
+ onclick="openEvent(
+   'Weekend Mountain Trail',
+   'Nov 9, 2025',
+   '7:00 AM',
+   '45 km',
+   'Vasai, Mumbai'
+ )">
+                        
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
-                            </svg>
-                            32 km
+                            </svg>     
+                        32 km
                         </div>
                     </div>
                     <span class="badge badge-intermediate">Intermediate</span>
@@ -549,26 +614,34 @@
                             <line x1="8" y1="2" x2="8" y2="6"></line>
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
-                        Nov 16, 2025
-                    </div>
-                    <h3>City Tour </h3>
-                    <div class="card-details">
-                        <div class="card-detail">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        Nov 16, 2025  
+                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                            9:00 AM
-                        </div>
+                            </svg> 9:00 AM
+                    </div>
+                    <h3>City Tour </h3>
+                    
+                         <div class="card"
+ onclick="openEvent(
+   'Weekend Mountain Trail',
+   'Nov 9, 2025',
+   '7:00 AM',
+   '45 km',
+   'Vasai, Mumbai'
+ )">
+                        
                         <div class="card-detail">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
                             </svg>
+                            
                             18 km
                         </div>
                     </div>
                     <span class="badge badge-beginner">Beginner</span>
                     <span class="badge badge-info">25 spots left</span>
+                
                 </div>
             </div>
         </section>
@@ -651,13 +724,13 @@
                         <li>Online route library</li>
                         <li>Community forum access</li>
                     </ul>
-                    <a href="#" class="btn btn-primary btn-full">Get Started</a>
+                   <a href="#" class="btn btn-primary btn-full" onclick="startMembership('Basic',29)">Get Started</a>
                 </div>
 
                 <div class="membership-card popular">
                     <span class="popular-badge">Most Popular</span>
                     <h3>Premium</h3>
-                    <div class="price">$89rs<span>/year</span></div>
+                    <div class="price">89rs<span>/year</span></div>
                     <ul class="features">
                         <li>Everything in Basic</li>
                         <li>Priority event registration</li>
@@ -665,7 +738,7 @@
                         <li>15% off club merchandise</li>
                         <li>Free bike maintenance workshop</li>
                     </ul>
-                    <a href="#" class="btn btn-primary btn-full">Get Started</a>
+                    <a href="#" class="btn btn-primary btn-full" onclick="startMembership('Basic',29)">Get Started</a>
                 </div>
 
                 <div class="membership-card">
@@ -679,7 +752,8 @@
                         <li>25% off club merchandise</li>
                         <li>Nutrition consultation</li>
                     </ul>
-                    <a href="#" class="btn btn-primary btn-full">Get Started</a>
+                    <a href="#" class="btn btn-primary btn-full" onclick="startMembership('Basic',29)">Get Started</a>
+
                 </div>
             </div>
         </section>
@@ -717,6 +791,252 @@
             </div>
         </div>
     </footer>
+    <!-- Event Modal -->
+<div id="eventModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDate"></p>
+    <p id="modalTime"></p>
+    <p id="modalDistance"></p>
+
+    <!-- Google Map -->
+    <iframe
+      id="modalMap"
+      width="100%"
+      height="300"
+      style="border-radius:12px; margin-top:1rem;"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+    <h2>Login / Sign Up</h2>
+
+    <input type="text" id="userId" placeholder="Create User ID" class="input">
+    <input type="password" id="password" placeholder="Create Password" class="input">
+
+    <button class="btn btn-primary btn-full" onclick="loginUser()">Continue</button>
+  </div>
+</div>
+<!-- Membership Form -->
+<div id="membershipModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeMembership()">&times;</span>
+    <h2>Membership Details</h2>
+
+    <input type="text" id="fullName" placeholder="Full Name" class="input">
+    <input type="email" id="email" placeholder="Email" class="input">
+    <input type="tel" id="phone" placeholder="Phone Number" class="input">
+
+    <button class="btn btn-primary btn-full" onclick="openPayment()">Proceed to Payment</button>
+  </div>
+</div>
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closePayment()">&times;</span>
+    <h2>Payment Gateway</h2>
+
+    <p>Amount: <strong id="payAmount"></strong></p>
+
+    <button class="btn btn-primary btn-full" onclick="paymentSuccess()">
+      Pay Now
+    </button>
+  </div>
+</div>
+<!-- User Dashboard -->
+<div id="dashboardModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeDashboard()">&times;</span>
+    <h2>User Dashboard</h2>
+
+    <p><strong>User ID:</strong> <span id="dashUser"></span></p>
+    <p><strong>Membership Plan:</strong> <span id="dashPlan"></span></p>
+
+    <button class="btn btn-secondary btn-full" onclick="logoutUser()">
+      Logout
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function openEvent(title, date, time, distance, location) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDate").innerText = "📅 " + date;
+    document.getElementById("modalTime").innerText = "⏰ " + time;
+    document.getElementById("modalDistance").innerText = "🚴 " + distance;
+
+    document.getElementById("modalMap").src =
+        "https://www.google.com/maps?q=" + location + "&output=embed";
+
+    document.getElementById("eventModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("eventModal").style.display = "none";
+}
+</script>
+<script>
+let selectedPlan = "";
+let selectedPrice = "";
+
+function startMembership(plan, price) {
+    selectedPlan = plan;
+    selectedPrice = price;
+
+    if (!localStorage.getItem("loggedIn")) {
+        document.getElementById("loginModal").style.display = "flex";
+    } else {
+        document.getElementById("membershipModal").style.display = "flex";
+    }
+}
+
+/* LOGIN */
+function loginUser() {
+    const id = document.getElementById("userId").value;
+    const pass = document.getElementById("password").value;
+
+    if (id && pass) {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("userId", id);
+
+        closeLogin();
+        document.getElementById("membershipModal").style.display = "flex";
+        updateNavbar();
+    } else {
+        alert("Please enter ID and Password");
+    }
+}
+
+/* MEMBERSHIP FORM */
+function openPayment() {
+    document.getElementById("membershipModal").style.display = "none";
+    document.getElementById("payAmount").innerText =
+        `₹${selectedPrice} (${selectedPlan} Plan)`;
+    document.getElementById("paymentModal").style.display = "flex";
+}
+
+/* PAYMENT SUCCESS */
+function paymentSuccess() {
+    alert("Payment Successful! 🎉");
+    document.getElementById("paymentModal").style.display = "none";
+    localStorage.setItem("memberPlan", selectedPlan);
+    updateNavbar();
+}
+
+
+/* CLOSE MODALS */
+function closeLogin() {
+    document.getElementById("loginModal").style.display = "none";
+}
+function closeMembership() {
+    document.getElementById("membershipModal").style.display = "none";
+}
+function closePayment() {
+    document.getElementById("paymentModal").style.display = "none";
+}
+
+/* NAVBAR UPDATE */
+function updateNavbar() {
+    const nav = document.querySelector(".nav-links");
+
+    if (localStorage.getItem("loggedIn")) {
+        nav.innerHTML = `
+          <li><a href="#home">Home</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#routes">Routes</a></li>
+          <li>
+            <a href="#" onclick="openDashboard()">Dashboard</a>
+          </li>
+          <li>
+            <a href="#" onclick="logoutUser()">Logout</a>
+          </li>
+        `;
+    }
+}
+updateNavbar();
+
+
+function openDashboard() {
+    document.getElementById("dashUser").innerText =
+        localStorage.getItem("userId");
+
+    document.getElementById("dashPlan").innerText =
+        localStorage.getItem("memberPlan") || "Not Purchased";
+
+    document.getElementById("dashboardModal").style.display = "flex";
+}
+
+function closeDashboard() {
+    document.getElementById("dashboardModal").style.display = "none";
+}
+
+function logoutUser() {
+    localStorage.clear();
+    alert("Logged out successfully");
+
+    document.getElementById("dashboardModal").style.display = "none";
+    location.reload(); // resets UI
+}
+</script>
+
 </body>
 
 </html>
